@@ -3,20 +3,27 @@
 <br>
 <div class="container">
     <div class="row">
+        @php
+            $pax=DB::table('sewa')->where('id_user', Auth::user()->id)->join('layanan', 'sewa.id_in', '=', 'layanan.id');
+        @endphp
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span>Pesananmu</span>
-                <span class="badge bg-primary text-white rounded-pill">3</span>
+                <span class="badge bg-primary text-white rounded-pill">{{$pax->count()}}</span>
             </h4>
             <ul class="list-group mb-3">
+
+                @foreach($pax->get() as $paxli)
+                {{-- @dump($paxli) --}}
                 <li class="list-group-item d-flex justify-content-between lh-sm">
                     <div>
-                        <h6 class="my-0">Wisma 2</h6>
-                        <small class="text-muted">20-12-2022</small>
+                        <h6 class="my-0">{{$paxli->nama}}</h6>
+                        <small class="text-muted">Penggunaan : {{$paxli->tanggal}}</small><br>
+                        <small class="text-muted">Kekurangan : {{$paxli->harga-$paxli->paycount}}</small>
                     </div>
-                    <span class="text-muted font-weight-bold">Pemeriksaan pembayaran</span>
+                    <span class="text-muted font-weight-bold border-outline-success">{{$paxli->status}}</span>
                 </li>
-                </li>
+                @endforeach
                 <li class="list-group-item d-flex justify-content-between btn-success-soft">
                     {{-- icon contak --}}
                     <a href="https://wa.me/6281221723861" target="_blank">
@@ -26,6 +33,7 @@
                 </li>
             </ul>
         </div>
+
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Informasi Pemesanan</h4>
             <div class="card mb-5">
@@ -40,10 +48,13 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form role="form" class="form-width">
+                    <form role="form" class="form-width" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="{{$_GET['in']}}" name="id_produk">
+                        <input type="hidden" value="{{$_GET['t']}}" name="t">
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
+                                <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="{{Auth::user()->name}}">
                                 <i class="fa fa-user iconalign"></i>
                             </div>
                         </div>
@@ -53,7 +64,7 @@
                                 <i class="fa fa-phone iconalign"></i>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="email" class="form-control" placeholder="E-Mail">
+                                <input type="email" class="form-control" placeholder="E-Mail" name="email" value="{{Auth::user()->email}}">
                                 <i class="fa fa-envelope iconalign"></i>
                             </div>
                         </div>
@@ -106,9 +117,9 @@
                                         </p>
                                         <div id="div1" style="display: inline;">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Pembayaran Atas Nama">
-                                                <input type="number" class="form-control" placeholder="Nomor Transaksi">
-                                                <input type="file" class="form-control" placeholder="Bukti Pembayaran">
+                                                <input type="text" class="form-control" name="trxname" placeholder="Pembayaran Atas Nama">
+                                                <input type="number" class="form-control" name="trxnumber" placeholder="Nomor Transaksi">
+                                                <input type="file" class="form-control" name="bukti" placeholder="Bukti Pembayaran">
                                                 <i class="fa fa-user iconalign"></i>
                                             </div>
                                         </div>
@@ -116,13 +127,13 @@
                                     <div class="tab-pane fade" id="paypal" role="tabpanel" aria-labelledby="paypal-tab">
                                         <div id="div2">
                                             <div class="form-group">
-                                                <input type="number" class="form-control" placeholder="Nominal Pembayaran">
+                                                <input type="number" class="form-control" name="tmxvalue" placeholder="Nominal Pembayaran">
                                                 <i class="fa fa-envelope iconalign"></i>
                                             </div>
                                         </div>
                                         <div id="div2">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Kode Pembayaran">
+                                                <input type="text" class="form-control" name="idtmx" placeholder="Kode Pembayaran">
                                                 <i class="fa fa-envelope iconalign"></i>
                                             </div>
                                         </div>
@@ -130,7 +141,7 @@
 
                                     <div class="form-group">
                                         <button class="btn btn-primary col-md-4" type="submit">
-                                            Pay Now
+                                            Bayar
                                         </button>
                                     </div>
                                 </div>

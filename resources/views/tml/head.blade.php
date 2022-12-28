@@ -31,6 +31,8 @@
                         $menu=[
                             ["name"=>"HOME","link"=>"/"],
                             ["name"=>"WISMA","link"=>"/fi?t=wisma"],
+                            ["name"=>"Pemusik","link"=>"/fi?t=Pemusik"],
+                            ["name"=>"Rental Mobil","link"=>"/fi?t=Rental Mobil"],
                         ]
                     @endphp
                     <ul class="navbar-nav">
@@ -39,23 +41,20 @@
                         @endforeach
                     </ul>
                     <ul class="navbar-nav">
+                        @if (Auth::check())
                         <li class="nav-item dropdown megamenu">
                             <a class="nav-link dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><i class="las la-user mr-2" style="font-size:22px;"></i></a>
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                <a class="dropdown-item font-weight-bold swap-link" href="#"><i class="las la-user bg-info-alt p-1 rounded text-info"></i> Profile</a>
-                                <a class="dropdown-item swap-link" href="#"><i class="dropdown-icon"></i> My Service</a>
-                                <a class="dropdown-item swap-link" href="#"><i class="las la-sign-out-alt bg-danger-alt text-danger p-1 rounded"></i> Logout</a>
+                                <a class="dropdown-item font-weight-bold swap-link" href="{{url('user/profile')}}"><i class="las la-user bg-info-alt p-1 rounded text-info"></i> Profile</a>
                             </div>
                         </li>
+                        @else
                         <li class="nav-item d-flex align-items-center">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle no-arrow btn btn-primary swap-link text-white" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Sign up</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item swap-link" href="#">Signup</a>
-                                <a class="dropdown-item swap-link" href="#">Author signup</a>
-                            </div>
+                            <a class="nav-link dropdown-toggle no-arrow btn btn-primary swap-link text-white mr-1" href="{{url('/login')}}" aria-expanded="false">Masuk </a>
+                            <a class="nav-link dropdown-toggle no-arrow btn btn-primary swap-link text-white ml-1" href="{{url('/register')}}" aria-expanded="false">Daftar</a>
                         </li>
-                        </li>
+                        @endif
+
                     </ul>
                 </div>
             </nav>

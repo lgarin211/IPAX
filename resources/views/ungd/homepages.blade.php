@@ -22,7 +22,7 @@
                         <div class="hover-icons">
                             <ul class="list-unstyled">
                                 <li><a href="{{url('/det?t=wisma&in='.$item->id)}}"><i class="las la-eye"></i></a></li>
-                                <li><a href="#"><i class="las la-truck-loading"></i></i></a></li>
+                                {{-- <li><a href="#"><i class="las la-truck-loading"></i></i></a></li> --}}
                             </ul>
                         </div>
                     </div>
@@ -65,13 +65,13 @@
             <div class="col-md-4 col-6">
                 <div class="card item-card h-100 border-0">
                     <div class="item-card__image rounded">
-                        <a href="single-product.html" class="swap-link">
+                        <a href="{{url('/det?t=Pemusik&in='.$item->id)}}" class="swap-link">
                             <img src="{{url('/storage/'.$item->poster)}}" class="img-fluid rounded" alt="">
                         </a>
                         <div class="hover-icons">
                             <ul class="list-unstyled">
-                                <li><a href="javascript:void(0)"><i class="las la-desktop"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="lar la-bookmark"></i></a></li>
+                                <li><a href="{{url('/det?t=Pemusik&in='.$item->id)}}"><i class="las la-eye"></i></a></li>
+                                {{-- <li><a href="#"><i class="las la-truck-loading"></i></i></a></li> --}}
                             </ul>
                         </div>
                     </div>
@@ -90,9 +90,7 @@
                         <!-- end: Card info -->
                         <div class="d-flex justify-content-start align-items-center item-meta">
                             <div class="short-description mb-0">
-                                <p class="mb-0 extension-text">
-                                    {{-- pos --}}
-                                </p>
+                                <p class="mb-0 extension-text">{{$item->alamat}}</p>
                             </div>
                         </div>
                         <!-- end: Card meta -->
@@ -101,7 +99,6 @@
                 </div>
                 <!-- end: Card -->
             </div>
-            <!-- end: col -->
             @endforeach
         </div>
 
@@ -118,13 +115,13 @@
             <div class="col-md-4 col-6">
                 <div class="card item-card h-100 border-0">
                     <div class="item-card__image rounded">
-                        <a href="single-product.html" class="swap-link">
+                        <a href="{{url('/det?t=Rental Mobil&in='.$item->id)}}" class="swap-link">
                             <img src="{{url('/storage/'.$item->poster)}}" class="img-fluid rounded" alt="">
                         </a>
                         <div class="hover-icons">
                             <ul class="list-unstyled">
-                                <li><a href="javascript:void(0)"><i class="las la-desktop"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="lar la-bookmark"></i></a></li>
+                                <li><a href="{{url('/det?t=Rental Mobil&in='.$item->id)}}"><i class="las la-eye"></i></a></li>
+                                {{-- <li><a href="#"><i class="las la-truck-loading"></i></i></a></li> --}}
                             </ul>
                         </div>
                     </div>
@@ -133,7 +130,7 @@
                         <div class="d-flex justify-content-between align-items-start">
                             <div class="item-title">
                                 <a href="#">
-                                    {{-- <h3 class="h5 mb-0 text-truncate">{{$item->merek.",".$item->jenis}}</h3> --}}
+                                    <h3 class="h5 mb-0 text-truncate">{{$item->nama}}</h3>
                                 </a>
                             </div>
                             <div class="item-price">
@@ -143,7 +140,7 @@
                         <!-- end: Card info -->
                         <div class="d-flex justify-content-start align-items-center item-meta">
                             <div class="short-description mb-0">
-                                {{-- <p class="mb-0 extension-text"><a href="#">WordPress</a><span class="ml-1">in</span> <a href="#">Creative</a> </p> --}}
+                                <p class="mb-0 extension-text">{{$item->alamat}}</p>
                             </div>
                         </div>
                         <!-- end: Card meta -->
@@ -152,7 +149,6 @@
                 </div>
                 <!-- end: Card -->
             </div>
-            <!-- end: col -->
             @endforeach
         </div>
 

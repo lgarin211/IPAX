@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-4 mt-md-4 mt-lg-0">
                     <div class="image-wrap">
-                        <img class="d-none d-md-block img-fluid postion-relative mr-auto rounded-pill" alt=""  src="https://source.unsplash.com/random/?background-house&2" alt="Image" style="max-height : 300px; object-fit: cover">
+                        <img class="d-none d-md-block img-fluid postion-relative mr-auto rounded-pill" alt=""  src="https://source.unsplash.com/random/background-house,landscape&2" alt="Image" style="max-height : 300px; object-fit: cover">
                     </div>
                     <!-- end:Image wrap -->
                 </div>

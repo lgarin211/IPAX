@@ -10,7 +10,7 @@
             </div>
         </div>
         <!-- //container -->
-        @include('contain/baner_promotion')
+        @include('contain/baner2')
     </section>
     <!-- footer-top.// -->
     <section class="pt-3 pb-4">

@@ -66,7 +66,7 @@
                                 <h6 class="mb-2">Lihat Tempat Sejenis</h6>
                             </div>
                             <div class="col-md-4">
-                                <a href="{{url('/fi?t=wisma')}}" class="btn btn-link float-right">Explore all → </a>
+                                <a href="{{url('/fi?t='.$_GET['t'])}}" class="btn btn-link float-right">Explore all → </a>
                             </div>
                         </div>
                         <div class="row">
