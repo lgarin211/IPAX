@@ -46,6 +46,10 @@
                             <a class="nav-link dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><i class="las la-user mr-2" style="font-size:22px;"></i></a>
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
                                 <a class="dropdown-item font-weight-bold swap-link" href="{{url('user/profile')}}"><i class="las la-user bg-info-alt p-1 rounded text-info"></i> Profile</a>
+                                <form method="POST" action="{{url('/logout')}}">
+                                    <input type="hidden" name="_token" value="RTcabhGu5SJ7Bfa3YnREN55M5psq95lZFjzWCmNc">
+                                    <button class="dropdown-item font-weight-bold swap-link" href="{{url('/logout')}}"><i class="las la-user bg-info-alt p-1 rounded text-info"></i> Keluar</button>
+                                </form>
                             </div>
                         </li>
                         @else
