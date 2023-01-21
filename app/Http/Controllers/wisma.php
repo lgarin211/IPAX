@@ -22,6 +22,10 @@ class wisma extends Controller
         return view('ungd/homepages', $data);
     }
 
+    public function invoice() {
+        return view('ungd/invoice');
+    }
+
     public function saveorder(Request $request)
     {
 

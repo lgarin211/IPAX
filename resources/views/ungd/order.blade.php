@@ -22,6 +22,11 @@
                         <small class="text-muted">Kekurangan : {{$paxli->harga-$paxli->paycount}}</small>
                     </div>
                     <span class="text-muted font-weight-bold border-outline-success">{{$paxli->status}}</span>
+                    <span class="text-muted font-weight-bold border-outline-success">
+                        <a href="{{url('/invoice?cos='.$paxli->id)}}">
+                            <i class="las la-eye"></i>
+                        </a>
+                    </span>
                 </li>
                 @endforeach
                 <li class="list-group-item d-flex justify-content-between btn-success-soft">

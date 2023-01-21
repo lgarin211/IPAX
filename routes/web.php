@@ -8,6 +8,8 @@ Route::get('/', [wisma::class, 'unused']);
 Route::get('/det', [wisma::class, 'unusedone']);
 Route::get('/order', [wisma::class, 'order']);
 Route::get('/fi', [wisma::class, 'find']);
+Route::get('/invoice', [wisma::class, 'invoice']);
+
 Route::POST('/order', [wisma::class, 'saveorder']);
 
 Route::group(['prefix' => 'admin'], function () {

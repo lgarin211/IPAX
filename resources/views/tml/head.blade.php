@@ -22,7 +22,7 @@
     <header class="nav-wrap bg-dark fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark px-lg-0">
-                <a class="navbar-brand mr-3 swap-link" href="index.html">Layanan<span class="text-light font-weight-bold">Pesta</span></a>
+                <a class="navbar-brand mr-3 swap-link" href="{{url('/')}}"><img src="{{url('/storage/'.setting('site.logo'))}}" alt="" style="width: 50px">{{setting('site.title')}}</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
